@@ -28,6 +28,25 @@ public class ChoreDatabaseHelper {
         return chore_list;
     }
 
+    static public ChoreItem pull_chore_item(Context context, int index) {
+        //Get a database
+        SQLiteDatabase db = ChoreItemDatabase.get_readable_db(context);
+        //Create our SQL query (ID = index passed)
+        String selection = ChoreItemContract.ChoreItem._ID + " = " + index;
+
+        //Query the database.
+        Cursor cursor = create_cursor(db, selection);
+        cursor.moveToNext();
+
+        //Create the item from the cursor
+        ChoreItem chore_item = create_item_from_cursor(cursor);
+
+        //Cleanup and return
+        cursor.close();
+        return chore_item;
+
+    }
+
     //Creates a database cursor from a query (null query pulls all)
     static private Cursor create_cursor(SQLiteDatabase db, String query) {
         return db.query(

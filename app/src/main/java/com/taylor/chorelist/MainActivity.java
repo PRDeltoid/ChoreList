@@ -1,5 +1,6 @@
 package com.taylor.chorelist;
 
+import android.content.Intent;
 import android.graphics.drawable.TransitionDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -104,6 +106,16 @@ public class MainActivity extends AppCompatActivity {
         listview.setLongClickable(true);
 
         listview.setAdapter(adapter);
+
+        //Create item click listener event
+        //Click open a single entry view intent and passes the ID of the entry
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent chore_item_activity_intent = ChoreItemActivity.get_start_intent(getApplicationContext(), (int) id);
+                startActivityForResult(chore_item_activity_intent, 1);
+            }
+        });
 
     }
 
