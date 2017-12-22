@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup container) {
             if (convertView == null) {
-                convertView = getLayoutInflater().inflate(R.layout.list_item, container, false);
+                convertView = getLayoutInflater().inflate(R.layout.list_item_single_line, container, false);
             }
 
             //Get current chore item from chore_items arraylist
