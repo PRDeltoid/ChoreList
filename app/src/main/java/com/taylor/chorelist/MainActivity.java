@@ -55,13 +55,14 @@ public class MainActivity extends AppCompatActivity {
                     selected_entry_positions.remove(position);
                     ((TransitionDrawable) listview.getChildAt(position).getBackground()).reverseTransition(250);
                 }
+                mode.invalidate();
             }
 
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                 // Inflate a menu resource providing context menu items
                 MenuInflater inflater = mode.getMenuInflater();
-                //inflater.inflate(R.menu.menu_listview_actionmode, menu);
+                inflater.inflate(R.menu.menu_multiselect, menu);
                 return true;
             }
 
@@ -77,18 +78,8 @@ public class MainActivity extends AppCompatActivity {
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                 BaseAdapter adapter = (BaseAdapter) listview.getAdapter();
                 switch (item.getItemId()) {
-                    /*case R.id.action_delete:
-                        //Iterate through our selected items (listed by position in list)
-                        for(int position: selected_entry_positions) {
-                            //Grab the ID of our item via our adapter
-                            float id = adapter.getItemId(position);
-                            //Remove from the adapter list
-                            weight_log.remove(position);
-                            //Delete from DB
-                            LogDatabaseHelper.delete_entry(getApplicationContext(), Math.round(id));
-                        }
-                        mode.finish(); // Action picked, so close the CAB
-                        return true;*/
+                    case R.id.action_delete:
+                        mode.finish();
                     default:
                         return false;
                 }
@@ -111,12 +102,29 @@ public class MainActivity extends AppCompatActivity {
         //Click open a single entry view intent and passes the ID of the entry
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent chore_item_activity_intent = ChoreItemActivity.get_start_intent(getApplicationContext(), (int) id);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long chore_id) {
+                Intent chore_item_activity_intent = ChoreItemActivity.get_start_intent(getApplicationContext(), (int) chore_id);
                 startActivityForResult(chore_item_activity_intent, 1);
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch(id) {
+            case(R.id.action_settings):
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void reset_checked_items() {

@@ -28,7 +28,7 @@ public class ChoreDatabaseHelper {
         return chore_list;
     }
 
-    static public ChoreItem pull_chore_item(Context context, int index) {
+    static public ChoreItem pull_chore_item(Context context, long index) {
         //Get a database
         SQLiteDatabase db = ChoreItemDatabase.get_readable_db(context);
         //Create our SQL query (ID = index passed)

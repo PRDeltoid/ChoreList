@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:context="com.taylor.chorelist.MainActivity">
 
     <android.support.v7.widget.Toolbar
@@ -15,10 +14,17 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        />
 
-    <include layout="@layout/content_chore_item_listview" />
+    <ListView
+        android:id="@+id/chore_entry_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:divider="@color/material_blue_grey_800"
+        android:dividerHeight="1dp"
+        android:paddingTop="@dimen/list_top_padding"
+        />
 
 </LinearLayout>
 

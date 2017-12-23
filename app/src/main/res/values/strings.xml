@@ -2,4 +2,8 @@
     <string name="app_name">Chore List</string>
     <string name="placeholder_chore_name">Sweep the Floor</string>
     <string name="placeholder_date">Due in 2 Days</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_save">Save</string>
+    <string name="action_mark_done">Done</string>
 </resources>

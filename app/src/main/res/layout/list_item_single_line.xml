@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/list_item_height"
     android:paddingLeft="@dimen/list_item_side_padding"
-    android:paddingRight="@dimen/list_item_side_padding" >
+    android:paddingRight="@dimen/list_item_side_padding"
+    android:background="@drawable/select_deselect_transition">
 
     <TextView
         android:id="@+id/chore_name"
