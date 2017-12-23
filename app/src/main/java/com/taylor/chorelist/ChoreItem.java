@@ -11,6 +11,12 @@ public class ChoreItem {
         this.index = index;
     }
 
+    public ChoreItem(String name, int interval) {
+        this.name = name;
+        this.interval = interval;
+        this.index = -1;
+    }
+
     public ChoreItem() {
         this.interval = 0;
         this.name = "";

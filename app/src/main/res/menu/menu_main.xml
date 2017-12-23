@@ -3,6 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" >
     <item
+        android:id="@+id/action_new"
+        android:orderInCategory="103"
+        android:icon="@mipmap/ic_add_circle_outline_white_24dp"
+        android:title="@string/action_new"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="103"
         android:icon="@mipmap/ic_settings_white_24dp"

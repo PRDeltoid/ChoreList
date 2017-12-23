@@ -103,11 +103,20 @@ public class MainActivity extends AppCompatActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long chore_id) {
-                Intent chore_item_activity_intent = ChoreItemActivity.get_start_intent(getApplicationContext(), (int) chore_id);
-                startActivityForResult(chore_item_activity_intent, 1);
+                Intent chore_item_intent = ChoreItemActivity.get_start_intent(getApplicationContext(), chore_id);
+                startActivityForResult(chore_item_intent, 1);
             }
         });
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==RESULT_OK) {
+            Intent refresh = new Intent(this, MainActivity.class);
+            startActivity(refresh);
+            this.finish();
+        }
     }
 
     @Override
@@ -121,7 +130,12 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         switch(id) {
+            case(R.id.action_new):
+                Intent new_item_intent = new Intent(getApplicationContext(), ChoreItemActivity.class);
+                startActivityForResult(new_item_intent, 1);
+                return true;
             case(R.id.action_settings):
+                //Add settings menu intent here
             default:
                 return super.onOptionsItemSelected(item);
         }
