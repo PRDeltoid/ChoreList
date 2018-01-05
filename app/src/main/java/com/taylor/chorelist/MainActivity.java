@@ -76,8 +76,9 @@ public class MainActivity extends AppCompatActivity {
             // Called when the user selects a contextual menu item
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                BaseAdapter adapter = (BaseAdapter) listview.getAdapter();
+                //BaseAdapter adapter = (BaseAdapter) listview.getAdapter();
                 switch (item.getItemId()) {
+                    //TODO: Add "Mark Done" functionality
                     case R.id.action_delete:
                         mode.finish();
                     default:

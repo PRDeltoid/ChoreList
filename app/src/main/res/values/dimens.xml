@@ -1,5 +1,4 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
     <dimen name="list_item_height">40dp</dimen>
     <dimen name="list_item_side_padding">16dp</dimen>
     <dimen name="list_top_padding">4dp</dimen>

@@ -94,7 +94,7 @@ public class ChoreItemActivity extends AppCompatActivity {
         }
     }
 
-    void set_chore_id_flag() {
+    private void set_chore_id_flag() {
         chore_id = getIntent().getLongExtra("EXTRA_CHORE_ID", -1);
         if(chore_id != -1) {
             chore_has_id = true; //set entry_has_id flag
